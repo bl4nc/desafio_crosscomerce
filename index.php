@@ -1,5 +1,5 @@
 <?php
-set_time_limit(500);
+set_time_limit(700);
 require_once "./vendor/autoload.php";
 date_default_timezone_set('America/Sao_Paulo');
 header("Access-Control-Allow-Origin: *");
