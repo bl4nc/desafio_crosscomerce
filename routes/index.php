@@ -21,9 +21,8 @@ $app = new \Slim\App(slimConfiguration());
 
 
 $app->get('/',function(){
-    // header("location: ./load");
-    // exit;
-    echo 'runs';
+    header("location: ./load");
+    exit;
 });
 $app->get('/load', LoadController::class . ':Load');
 $app->run();
