@@ -11,16 +11,18 @@ final class Transform
     function order(array $values): array
     {
         $orderned_values = [];
-        for ($i = 0; $i != count($values); $i++) {
+        $qnt = count($values);
+        for ($i = 0; $i != $qnt; $i++) {
             $final_value = 0;
-            $list_values = $values;
-            foreach ($list_values as $index=>$value) {
-                if ($value > $final_value && !in_array($value, $orderned_values))  $final_value = $value;
+            $pos = 0;
+            foreach ($values as $index => $value) {
+                if ($value > $final_value ) {
+                    $final_value = $value;
+                    $pos = $index;
+                }
             }
             array_push($orderned_values, $final_value);
-            for($c = 0; $c != count($list_values); $c++){
-                if($list_values[$c] == $final_value)unset($final_value[$c]);
-            }
+            unset($values[$pos]);
         }
         return $orderned_values;
     }
